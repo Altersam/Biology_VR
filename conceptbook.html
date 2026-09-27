@@ -1,0 +1,103 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conceptbook — Biology VR</title><link rel="stylesheet" href="assets/css/style.css"></head><body>
+<header class="site"><div class="container nav">
+<a class="brand" href="index.html">BIOLOGY <span>VR</span></a>
+<nav class="navlinks">
+<a href="index.html#concept">Концепция</a>
+<a href="index.html#scenes">Сцены</a>
+<a href="index.html#presets">Пресеты</a>
+<a href="conceptbook.html">Conceptbook</a>
+<a href="docs/source/scenario.md">Сценарий.md</a>
+</nav></div></header>
+<main>
+<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="index.html">Главная</a> / Conceptbook</div>
+<div class="eyebrow">Game vision · design bible</div><h1 class="page-title">Conceptbook</h1>
+<p class="lead">Единое видение Biology VR: игровой мир, научные принципы, взаимодействия, интерфейсы, сцены, образовательные уровни и production-архитектура.</p>
+<div class="actions"><a class="btn primary" href="CONCEPTBOOK.md">Markdown-версия</a><a class="btn" href="docs/source/scenario.md">Полный сценарий</a></div>
+</div></section>
+
+<section><div class="container">
+<div class="panel"><div class="eyebrow">Идея</div><h2>Не экскурсия по организму, а научная миссия</h2>
+<p>Игрок последовательно наблюдает биологическое явление, взаимодействует с ним, сканирует, получает термин и затем использует знание в следующем действии. Финальная цель — восстановить гомеостаз, а не просто уничтожить противника.</p>
+<div class="callout">Сначала наблюдаем. Потом делаем вывод.</div></div>
+
+<div class="grid">
+<div class="panel"><h3>Лаборатория</h3><p>Одна фиксированная рабочая позиция. Профессор, стол, сканер, BioTool, информационный экран, HUD и камера уменьшения.</p></div>
+<div class="panel"><h3>Артерия</h3><p>Единый извилистый тоннель. Игрок находится внутри просвета сосуда, а события последовательно появляются перед ним.</p></div>
+<div class="panel"><h3>Возврат</h3><p>После восстановления гомеостаза тот же переход работает в обратную сторону, а финальный отчёт снова проходит в стартовой лаборатории.</p></div>
+</div>
+</div></section>
+
+<section><div class="container"><div class="section-head"><div><div class="eyebrow">Interaction grammar</div><h2>Пять повторяемых действий</h2></div></div>
+<div class="grid">
+<div class="panel"><h3>Руки</h3><p>Захват, вращение, передача, масштабирование, отделение и соединение учебных компонентов.</p></div>
+<div class="panel"><h3>Сканер</h3><p>Навести → удержать → визуальное выделение → термин и описание на постоянном информационном экране.</p></div>
+<div class="panel"><h3>BioTool</h3><p>Импульс, притяжение, управление, сосудистое поле и иммунное управление открываются по мере прохождения.</p></div>
+</div></div></section>
+
+<section><div class="container"><div class="section-head"><div><div class="eyebrow">Scientific layer</div><h2>Учебная модель</h2></div></div>
+<div class="panel"><p>Учебные объекты могут быть увеличены относительно реального масштаба, но интерфейс должен явно маркировать условность размера. Формулы появляются в старшем режиме только там, где они помогают объяснить наблюдаемую механику.</p>
+<table><tr><th>Связь</th><th>Использование</th></tr><tr><td>Hb + O₂ ⇄ HbO₂</td><td>Учебное связывание кислорода с гемом.</td></tr><tr><td>Q = vS</td><td>Связь расхода, скорости и площади сечения.</td></tr><tr><td>Q = πΔPr⁴/(8ηL)</td><td>Идеализированная модель для старшего режима.</td></tr><tr><td>Ag + Ab ⇄ AgAb</td><td>Специфическое связывание антигена и антитела.</td></tr></table></div>
+</div></section>
+
+<section><div class="container"><div class="section-head"><div><div class="eyebrow">Education</div><h2>Уровни по классам</h2></div></div>
+<div class="panel"><table><tr><th>Класс</th><th>Содержание</th><th>Роль в игре</th></tr><tr><td><strong>7 класс</strong></td><td>Клетка, мембрана, органоиды, вирусы</td><td>Ознакомительный режим; меньше терминов и формул.</td></tr><tr><td><strong>8 класс</strong></td><td>Кровеносная система, сосуды, транспорт веществ, диффузия</td><td>Физические процессы и наблюдение кровотока.</td></tr><tr><td><strong>9 класс</strong></td><td>Кровь, плазма, форменные элементы, гемостаз, иммунитет, давление, гомеостаз</td><td>Основной уровень текущей миссии.</td></tr><tr><td><strong>10 класс</strong></td><td>Мембранный транспорт, вирусология, фагоцитоз, антиген/антитело, клеточный гомеостаз</td><td>Максимально академичный режим с молекулярными моделями.</td></tr><tr><td><strong>11 класс</strong></td><td>Эволюция, естественный отбор, паразитизм</td><td>Лучше отдельное расширение про изменчивость патогенов.</td></tr></table></div>
+<div class="callout">Текущая основная миссия лучше всего ложится на 9 класс и академический режим 10 класса; материал 11 класса логичнее вынести в отдельное расширение.</div>
+</div></section>
+
+<section><div class="container"><div class="section-head"><div><div class="eyebrow">Scene flow</div><h2>18 эпизодов</h2></div><p>Подробная страница каждой сцены содержит технические требования и ссылки на конкретные ассеты.</p></div>
+<div class="timeline"><div class="timeline-item"><div class="num">1</div>
+    <a class="timeline-box" href="scenes/scene-01.html"><strong>Лаборатория</strong>
+    <div class="meta">0:00–5:00 · Обучение: руки, захват, сканирование, масштабирование</div></a></div><div class="timeline-item"><div class="num">2</div>
+    <a class="timeline-box" href="scenes/scene-02.html"><strong>Уменьшение</strong>
+    <div class="meta">5:00–6:00 · Переход / смена масштаба</div></a></div><div class="timeline-item"><div class="num">3</div>
+    <a class="timeline-box" href="scenes/scene-03.html"><strong>Артерия — знакомство с кровью</strong>
+    <div class="meta">6:00–10:00 · Исследование объектов руками и сканером</div></a></div><div class="timeline-item"><div class="num">4</div>
+    <a class="timeline-box" href="scenes/scene-04.html"><strong>Строение артерии</strong>
+    <div class="meta">10:00–12:00 · Послойное сканирование стенки</div></a></div><div class="timeline-item"><div class="num">5</div>
+    <a class="timeline-box" href="scenes/scene-05.html"><strong>Кровоток и давление</strong>
+    <div class="meta">12:00–14:00 · Эксперимент с потоком, радиусом и давлением</div></a></div><div class="timeline-item"><div class="num">6</div>
+    <a class="timeline-box" href="scenes/scene-06.html"><strong>Атеросклеротическая бляшка</strong>
+    <div class="meta">14:00–17:00 · Точный BioTool-режим «Импульс»</div></a></div><div class="timeline-item"><div class="num">7</div>
+    <a class="timeline-box" href="scenes/scene-07.html"><strong>Газовый эмбол</strong>
+    <div class="meta">17:00–19:00 · BioTool «Притяжение» / gravity-gun</div></a></div><div class="timeline-item"><div class="num">8</div>
+    <a class="timeline-box" href="scenes/scene-08.html"><strong>Первая встреча с вирусом</strong>
+    <div class="meta">19:00–20:30 · Исследование и сканирование вируса</div></a></div><div class="timeline-item"><div class="num">9</div>
+    <a class="timeline-box" href="scenes/scene-09.html"><strong>Вирусная волна</strong>
+    <div class="meta">20:30–23:00 · Rhythm-action / иммунное управление</div></a></div><div class="timeline-item"><div class="num">10</div>
+    <a class="timeline-box" href="scenes/scene-10.html"><strong>Падение давления</strong>
+    <div class="meta">23:00–25:00 · BioTool «Сосудистое поле»</div></a></div><div class="timeline-item"><div class="num">11</div>
+    <a class="timeline-box" href="scenes/scene-11.html"><strong>Повреждение стенки сосуда</strong>
+    <div class="meta">25:00–26:30 · Диагностика причины кровопотери</div></a></div><div class="timeline-item"><div class="num">12</div>
+    <a class="timeline-box" href="scenes/scene-12.html"><strong>Гемостаз</strong>
+    <div class="meta">26:30–30:00 · Управление клетками + puzzle гемостаза</div></a></div><div class="timeline-item"><div class="num">13</div>
+    <a class="timeline-box" href="scenes/scene-13.html"><strong>Баланс гемостаза</strong>
+    <div class="meta">≈ 1–2 мин · Баланс: остановить кровь без окклюзии</div></a></div><div class="timeline-item"><div class="num">14</div>
+    <a class="timeline-box" href="scenes/scene-14.html"><strong>Очистка и восстановление</strong>
+    <div class="meta">30:00–31:30 · Фагоцитоз + восстановление эндотелия</div></a></div><div class="timeline-item"><div class="num">15</div>
+    <a class="timeline-box" href="scenes/scene-15.html"><strong>Финальный вирусный очаг</strong>
+    <div class="meta">31:30–36:00 · Шестифазный финальный босс</div></a></div><div class="timeline-item"><div class="num">16</div>
+    <a class="timeline-box" href="scenes/scene-16.html"><strong>Восстановление гомеостаза</strong>
+    <div class="meta">после босса · Контроль показателей / подтверждение гомеостаза</div></a></div><div class="timeline-item"><div class="num">17</div>
+    <a class="timeline-box" href="scenes/scene-17.html"><strong>Возвращение в лабораторию</strong>
+    <div class="meta">переход · Переход / возврат масштаба</div></a></div><div class="timeline-item"><div class="num">18</div>
+    <a class="timeline-box" href="scenes/scene-18.html"><strong>Финальный отчёт</strong>
+    <div class="meta">финал · Отчёт и разблокировка свободного режима</div></a></div></div></div></section>
+
+<section><div class="container"><div class="panel"><h2>Production-принцип</h2>
+<p>Состояния одного биологического объекта должны максимально переиспользовать один Prefab.</p>
+<pre style="white-space:pre-wrap;color:#cce8f7;background:#06101a;padding:16px;border-radius:10px">Base Prefab
+├─ Mesh / LOD
+├─ Materials
+├─ Collider
+├─ ScannerTarget
+├─ XR Interaction
+├─ State Controller
+├─ Animator / BlendShapes
+├─ VFX hooks
+└─ Scene events</pre>
+<p>Например, один тромбоцит имеет состояния покоя, активации, адгезии и агрегации; один эндотелий — здоровое, повреждённое и восстановленное состояния.</p></div></div></section>
+</main><footer><div class="container">
+<strong>Biology VR</strong> · production documentation for Unity / Blender.<br>
+Статический сайт без внешних зависимостей — подходит для GitHub Pages.
+</div></footer><script src="assets/js/site.js"></script></body></html>

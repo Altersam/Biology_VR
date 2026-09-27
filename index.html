@@ -1,0 +1,443 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biology VR — Conceptbook & Production Bible</title>
+<meta name="description" content="Концептбук и техническая документация образовательной VR-игры Biology VR.">
+<link rel="stylesheet" href="assets/css/style.css"></head><body>
+<header class="site"><div class="container nav">
+<a class="brand" href="index.html">BIOLOGY <span>VR</span></a>
+<nav class="navlinks">
+<a href="index.html#concept">Концепция</a>
+<a href="index.html#scenes">Сцены</a>
+<a href="index.html#presets">Пресеты</a>
+<a href="conceptbook.html">Conceptbook</a>
+<a href="docs/source/scenario.md">Сценарий.md</a>
+</nav></div></header>
+<main>
+<section class="hero"><div class="container">
+<div class="eyebrow">Game concept · Unity VR · production bible</div>
+<h1>BIOLOGY VR<small>Кровь, сосуды, гемостаз и иммунный ответ — как единая интерактивная миссия внутри артерии</small></h1>
+<p class="lead">Единая точка документации проекта: концепция игры, полный маршрут из 18 сцен, библиотека биологических и технических пресетов, связи «сцена → используемые пресеты» и обратные связи «пресет → сцены».</p>
+<div class="actions"><a class="btn primary" href="#scenes">Открыть сцены</a><a class="btn" href="conceptbook.html">Читать Conceptbook</a><a class="btn" href="docs/source/preset-map.md">Техническая карта MD</a></div>
+<div class="stats"><div class="stat"><strong>18</strong><span>сцен и переходов</span></div><div class="stat"><strong>51</strong><span>описанный пресет</span></div><div class="stat"><strong>30–40 мин</strong><span>основная миссия</span></div><div class="stat"><strong>1 артерия</strong><span>единый микромир без свободной ходьбы</span></div></div>
+</div></section>
+
+<section id="concept"><div class="container"><div class="section-head"><div><div class="eyebrow">01 · Vision</div><h2>Концепция</h2></div><p>Игрок не «гуляет по организму», а проходит спроектированную научную миссию: наблюдает → исследует → получает термин → применяет знание → видит физиологический результат.</p></div>
+<div class="grid">
+<div class="panel"><h3>Основной маршрут</h3><p>Лаборатория → переход в микромир → единая извилистая артерия → сосудистые и иммунные события → восстановление гомеостаза → лаборатория → отчёт.</p></div>
+<div class="panel"><h3>Грамматика взаимодействия</h3><p>Руки, захват, сканирование, увеличение учебных моделей, BioTool с открывающимися режимами, постоянный информационный экран и HUD.</p></div>
+<div class="panel"><h3>Научный принцип</h3><p>Визуальная стилизация допускается, но механика должна объяснять причинно-следственные связи. Условные масштабы и упрощённые модели явно маркируются.</p></div>
+</div></div></section>
+
+<section id="scenes"><div class="container"><div class="section-head"><div><div class="eyebrow">02 · Scene bible</div><h2>Сцены</h2></div><p>Каждая сцена имеет отдельную страницу с иллюстрацией, технической последовательностью, механикой и прямыми ссылками на все задействованные пресеты.</p></div>
+<div class="grid">
+    <a class="card" href="scenes/scene-01.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-01.webp" alt="Сцена 1: Лаборатория">
+      <div class="body"><div class="kicker">Сцена 01 · 0:00–5:00</div>
+      <h3>Лаборатория</h3><p>Научить игрока базовым VR-взаимодействиям и задать миссию.</p>
+      <div class="tags"><span class="tag">Обучение: руки, захват, сканирование, масштабирование</span><span class="tag green">14 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-02.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-02.webp" alt="Сцена 2: Уменьшение">
+      <div class="body"><div class="kicker">Сцена 02 · 5:00–6:00</div>
+      <h3>Уменьшение</h3><p>Без затемнения перевести игрока из лаборатории в микромир.</p>
+      <div class="tags"><span class="tag">Переход / смена масштаба</span><span class="tag green">8 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-03.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-03.webp" alt="Сцена 3: Артерия — знакомство с кровью">
+      <div class="body"><div class="kicker">Сцена 03 · 6:00–10:00</div>
+      <h3>Артерия — знакомство с кровью</h3><p>Познакомить с основными форменными элементами крови и молекулярным уровнем.</p>
+      <div class="tags"><span class="tag">Исследование объектов руками и сканером</span><span class="tag green">18 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-04.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-04.webp" alt="Сцена 4: Строение артерии">
+      <div class="body"><div class="kicker">Сцена 04 · 10:00–12:00</div>
+      <h3>Строение артерии</h3><p>Показать строение внутренней стенки артерии и её слои.</p>
+      <div class="tags"><span class="tag">Послойное сканирование стенки</span><span class="tag green">8 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-05.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-05.webp" alt="Сцена 5: Кровоток и давление">
+      <div class="body"><div class="kicker">Сцена 05 · 12:00–14:00</div>
+      <h3>Кровоток и давление</h3><p>Связать наблюдаемый кровоток с радиусом сосуда, скоростью и давлением.</p>
+      <div class="tags"><span class="tag">Эксперимент с потоком, радиусом и давлением</span><span class="tag green">8 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-06.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-06.webp" alt="Сцена 6: Атеросклеротическая бляшка">
+      <div class="body"><div class="kicker">Сцена 06 · 14:00–17:00</div>
+      <h3>Атеросклеротическая бляшка</h3><p>Ввести патологию стенки сосуда и первую точную активную механику BioTool.</p>
+      <div class="tags"><span class="tag">Точный BioTool-режим «Импульс»</span><span class="tag green">17 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-07.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-07.webp" alt="Сцена 7: Газовый эмбол">
+      <div class="body"><div class="kicker">Сцена 07 · 17:00–19:00</div>
+      <h3>Газовый эмбол</h3><p>Отработать дистанционный захват и перемещение опасного объекта.</p>
+      <div class="tags"><span class="tag">BioTool «Притяжение» / gravity-gun</span><span class="tag green">9 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-08.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-08.webp" alt="Сцена 8: Первая встреча с вирусом">
+      <div class="body"><div class="kicker">Сцена 08 · 19:00–20:30</div>
+      <h3>Первая встреча с вирусом</h3><p>Научить сначала исследовать угрозу, а не атаковать её.</p>
+      <div class="tags"><span class="tag">Исследование и сканирование вируса</span><span class="tag green">8 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-09.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-09.webp" alt="Сцена 9: Вирусная волна">
+      <div class="body"><div class="kicker">Сцена 09 · 20:30–23:00</div>
+      <h3>Вирусная волна</h3><p>Сделать иммунный ответ динамическим испытанием с ростом температуры.</p>
+      <div class="tags"><span class="tag">Rhythm-action / иммунное управление</span><span class="tag green">10 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-10.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-10.webp" alt="Сцена 10: Падение давления">
+      <div class="body"><div class="kicker">Сцена 10 · 23:00–25:00</div>
+      <h3>Падение давления</h3><p>Показать падение давления и временное управление тонусом сосуда.</p>
+      <div class="tags"><span class="tag">BioTool «Сосудистое поле»</span><span class="tag green">7 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-11.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-11.webp" alt="Сцена 11: Повреждение стенки сосуда">
+      <div class="body"><div class="kicker">Сцена 11 · 25:00–26:30</div>
+      <h3>Повреждение стенки сосуда</h3><p>Найти физическую причину падения давления — разрыв внутренней стенки.</p>
+      <div class="tags"><span class="tag">Диагностика причины кровопотери</span><span class="tag green">12 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-12.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-12.webp" alt="Сцена 12: Гемостаз">
+      <div class="body"><div class="kicker">Сцена 12 · 26:30–30:00</div>
+      <h3>Гемостаз</h3><p>Пошагово собрать первичный и стабилизированный гемостатический ответ.</p>
+      <div class="tags"><span class="tag">Управление клетками + puzzle гемостаза</span><span class="tag green">15 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-13.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-13.webp" alt="Сцена 13: Баланс гемостаза">
+      <div class="body"><div class="kicker">Сцена 13 · ≈ 1–2 мин</div>
+      <h3>Баланс гемостаза</h3><p>Научить, что гемостаз должен быть достаточным, но не перекрывать сосуд.</p>
+      <div class="tags"><span class="tag">Баланс: остановить кровь без окклюзии</span><span class="tag green">12 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-14.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-14.webp" alt="Сцена 14: Очистка и восстановление">
+      <div class="body"><div class="kicker">Сцена 14 · 30:00–31:30</div>
+      <h3>Очистка и восстановление</h3><p>Показать очистку повреждённой зоны и восстановление эндотелия.</p>
+      <div class="tags"><span class="tag">Фагоцитоз + восстановление эндотелия</span><span class="tag green">13 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-15.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-15.webp" alt="Сцена 15: Финальный вирусный очаг">
+      <div class="body"><div class="kicker">Сцена 15 · 31:30–36:00</div>
+      <h3>Финальный вирусный очаг</h3><p>Объединить вирусологию и иммунологию в многофазный финальный эпизод.</p>
+      <div class="tags"><span class="tag">Шестифазный финальный босс</span><span class="tag green">19 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-16.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-16.webp" alt="Сцена 16: Восстановление гомеостаза">
+      <div class="body"><div class="kicker">Сцена 16 · после босса</div>
+      <h3>Восстановление гомеостаза</h3><p>Сравнить текущее состояние с исходным и подтвердить восстановление гомеостаза.</p>
+      <div class="tags"><span class="tag">Контроль показателей / подтверждение гомеостаза</span><span class="tag green">9 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-17.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-17.webp" alt="Сцена 17: Возвращение в лабораторию">
+      <div class="body"><div class="kicker">Сцена 17 · переход</div>
+      <h3>Возвращение в лабораторию</h3><p>Вернуть игрока из микромира в исходную лабораторию.</p>
+      <div class="tags"><span class="tag">Переход / возврат масштаба</span><span class="tag green">9 пресетов</span></div></div>
+    </a>
+    <a class="card" href="scenes/scene-18.html">
+      <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-18.webp" alt="Сцена 18: Финальный отчёт">
+      <div class="body"><div class="kicker">Сцена 18 · финал</div>
+      <h3>Финальный отчёт</h3><p>Свести результаты миссии и открыть режим свободного исследования.</p>
+      <div class="tags"><span class="tag">Отчёт и разблокировка свободного режима</span><span class="tag green">27 пресетов</span></div></div>
+    </a></div></div></section>
+
+<section><div class="container"><div class="section-head"><div><div class="eyebrow">03 · Flow</div><h2>Маршрут игрока</h2></div></div><div class="timeline"><div class="timeline-item"><div class="num">1</div>
+    <a class="timeline-box" href="scenes/scene-01.html"><strong>Лаборатория</strong>
+    <div class="meta">0:00–5:00 · Обучение: руки, захват, сканирование, масштабирование</div></a></div><div class="timeline-item"><div class="num">2</div>
+    <a class="timeline-box" href="scenes/scene-02.html"><strong>Уменьшение</strong>
+    <div class="meta">5:00–6:00 · Переход / смена масштаба</div></a></div><div class="timeline-item"><div class="num">3</div>
+    <a class="timeline-box" href="scenes/scene-03.html"><strong>Артерия — знакомство с кровью</strong>
+    <div class="meta">6:00–10:00 · Исследование объектов руками и сканером</div></a></div><div class="timeline-item"><div class="num">4</div>
+    <a class="timeline-box" href="scenes/scene-04.html"><strong>Строение артерии</strong>
+    <div class="meta">10:00–12:00 · Послойное сканирование стенки</div></a></div><div class="timeline-item"><div class="num">5</div>
+    <a class="timeline-box" href="scenes/scene-05.html"><strong>Кровоток и давление</strong>
+    <div class="meta">12:00–14:00 · Эксперимент с потоком, радиусом и давлением</div></a></div><div class="timeline-item"><div class="num">6</div>
+    <a class="timeline-box" href="scenes/scene-06.html"><strong>Атеросклеротическая бляшка</strong>
+    <div class="meta">14:00–17:00 · Точный BioTool-режим «Импульс»</div></a></div><div class="timeline-item"><div class="num">7</div>
+    <a class="timeline-box" href="scenes/scene-07.html"><strong>Газовый эмбол</strong>
+    <div class="meta">17:00–19:00 · BioTool «Притяжение» / gravity-gun</div></a></div><div class="timeline-item"><div class="num">8</div>
+    <a class="timeline-box" href="scenes/scene-08.html"><strong>Первая встреча с вирусом</strong>
+    <div class="meta">19:00–20:30 · Исследование и сканирование вируса</div></a></div><div class="timeline-item"><div class="num">9</div>
+    <a class="timeline-box" href="scenes/scene-09.html"><strong>Вирусная волна</strong>
+    <div class="meta">20:30–23:00 · Rhythm-action / иммунное управление</div></a></div><div class="timeline-item"><div class="num">10</div>
+    <a class="timeline-box" href="scenes/scene-10.html"><strong>Падение давления</strong>
+    <div class="meta">23:00–25:00 · BioTool «Сосудистое поле»</div></a></div><div class="timeline-item"><div class="num">11</div>
+    <a class="timeline-box" href="scenes/scene-11.html"><strong>Повреждение стенки сосуда</strong>
+    <div class="meta">25:00–26:30 · Диагностика причины кровопотери</div></a></div><div class="timeline-item"><div class="num">12</div>
+    <a class="timeline-box" href="scenes/scene-12.html"><strong>Гемостаз</strong>
+    <div class="meta">26:30–30:00 · Управление клетками + puzzle гемостаза</div></a></div><div class="timeline-item"><div class="num">13</div>
+    <a class="timeline-box" href="scenes/scene-13.html"><strong>Баланс гемостаза</strong>
+    <div class="meta">≈ 1–2 мин · Баланс: остановить кровь без окклюзии</div></a></div><div class="timeline-item"><div class="num">14</div>
+    <a class="timeline-box" href="scenes/scene-14.html"><strong>Очистка и восстановление</strong>
+    <div class="meta">30:00–31:30 · Фагоцитоз + восстановление эндотелия</div></a></div><div class="timeline-item"><div class="num">15</div>
+    <a class="timeline-box" href="scenes/scene-15.html"><strong>Финальный вирусный очаг</strong>
+    <div class="meta">31:30–36:00 · Шестифазный финальный босс</div></a></div><div class="timeline-item"><div class="num">16</div>
+    <a class="timeline-box" href="scenes/scene-16.html"><strong>Восстановление гомеостаза</strong>
+    <div class="meta">после босса · Контроль показателей / подтверждение гомеостаза</div></a></div><div class="timeline-item"><div class="num">17</div>
+    <a class="timeline-box" href="scenes/scene-17.html"><strong>Возвращение в лабораторию</strong>
+    <div class="meta">переход · Переход / возврат масштаба</div></a></div><div class="timeline-item"><div class="num">18</div>
+    <a class="timeline-box" href="scenes/scene-18.html"><strong>Финальный отчёт</strong>
+    <div class="meta">финал · Отчёт и разблокировка свободного режима</div></a></div></div></div></section>
+
+<section id="presets"><div class="container"><div class="section-head"><div><div class="eyebrow">04 · Asset library</div><h2>Библиотека пресетов</h2></div><p>Все 3D/UX/VFX-объекты разложены как отдельные сущности. На странице каждого пресета указано, где он используется.</p></div>
+<div class="searchrow"><input id="presetSearch" placeholder="Поиск: эритроцит, гемостаз, инструмент…"><select id="presetCategory"><option value="all">Все категории</option><option>UI</option><option>UI/объект</option><option>Атом</option><option>Белок</option><option>Белок/волокна</option><option>Вирус</option><option>Вирусная структура</option><option>Гемостаз</option><option>Иммунный комплекс</option><option>Инструмент</option><option>Клетка</option><option>Клеточный элемент</option><option>Композитный босс</option><option>Микрофрагменты</option><option>Молекула</option><option>Молекула/белок</option><option>Молекулярный набор</option><option>Молекулярный объект</option><option>Окружение</option><option>Окружение/состояние</option><option>Патология</option><option>Патология/окружение</option><option>Патология/состояние</option><option>Патология/часть</option><option>Персонаж</option><option>Система/VFX</option><option>Среда</option><option>Ткань</option><option>Ткань/окружение</option><option>Ткань/состояние</option><option>Устройство</option><option>Фермент</option></select></div>
+<div class="preset-grid">
+    <a class="preset-card" data-preset-card data-category="Окружение" data-search="стартовая лаборатория окружение статичная рабочая зона; изображение сцены 1 используется как референс." href="presets/lab.html">
+      <img loading="lazy" src="assets/thumbs/presets/lab.webp" alt="Стартовая лаборатория">
+      <div class="body"><div class="kicker">Окружение</div><h3>Стартовая лаборатория</h3>
+      <p>Статичная рабочая зона; изображение сцены 1 используется как референс.</p><div class="tags"><span class="tag">4 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Персонаж" data-search="профессор-гид персонаж физический/голографический научный проводник." href="presets/professor.html">
+      <img loading="lazy" src="assets/thumbs/presets/professor.webp" alt="Профессор-гид">
+      <div class="body"><div class="kicker">Персонаж</div><h3>Профессор-гид</h3>
+      <p>Физический/голографический научный проводник.</p><div class="tags"><span class="tag">18 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="UI/объект" data-search="информационный экран ui/объект постоянный экран заданий, терминов, формул и подсказок." href="presets/info-screen.html">
+      <img loading="lazy" src="assets/thumbs/presets/info-screen.webp" alt="Информационный экран">
+      <div class="body"><div class="kicker">UI/объект</div><h3>Информационный экран</h3>
+      <p>Постоянный экран заданий, терминов, формул и подсказок.</p><div class="tags"><span class="tag">18 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="UI" data-search="hud жизненных показателей ui постоянные чсс, ад, spo₂, температура и статус миссии." href="presets/hud.html">
+      <img loading="lazy" src="assets/thumbs/presets/hud.webp" alt="HUD жизненных показателей">
+      <div class="body"><div class="kicker">UI</div><h3>HUD жизненных показателей</h3>
+      <p>Постоянные ЧСС, АД, SpO₂, температура и статус миссии.</p><div class="tags"><span class="tag">16 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Окружение" data-search="лабораторный стол окружение центральная рабочая станция и доки инструментов." href="presets/lab-table.html">
+      <img loading="lazy" src="assets/thumbs/presets/lab-table.webp" alt="Лабораторный стол">
+      <div class="body"><div class="kicker">Окружение</div><h3>Лабораторный стол</h3>
+      <p>Центральная рабочая станция и доки инструментов.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Устройство" data-search="камера уменьшения устройство переход лаборатория ↔ микромир." href="presets/shrink-chamber.html">
+      <img loading="lazy" src="assets/thumbs/presets/shrink-chamber.webp" alt="Камера уменьшения">
+      <div class="body"><div class="kicker">Устройство</div><h3>Камера уменьшения</h3>
+      <p>Переход лаборатория ↔ микромир.</p><div class="tags"><span class="tag">4 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Инструмент" data-search="ручной сканер инструмент распознавание и исследование объектов." href="presets/scanner.html">
+      <img loading="lazy" src="assets/thumbs/presets/scanner.webp" alt="Ручной сканер">
+      <div class="body"><div class="kicker">Инструмент</div><h3>Ручной сканер</h3>
+      <p>Распознавание и исследование объектов.</p><div class="tags"><span class="tag">10 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Инструмент" data-search="biotool инструмент импульс, притяжение, управление, сосудистое поле, иммунное управление." href="presets/biotool.html">
+      <img loading="lazy" src="assets/thumbs/presets/biotool.webp" alt="BioTool">
+      <div class="body"><div class="kicker">Инструмент</div><h3>BioTool</h3>
+      <p>Импульс, притяжение, управление, сосудистое поле, иммунное управление.</p><div class="tags"><span class="tag">13 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Окружение" data-search="артерия — основной тоннель окружение основная игровая локация внутри просвета сосуда." href="presets/artery.html">
+      <img loading="lazy" src="assets/thumbs/presets/artery.webp" alt="Артерия — основной тоннель">
+      <div class="body"><div class="kicker">Окружение</div><h3>Артерия — основной тоннель</h3>
+      <p>Основная игровая локация внутри просвета сосуда.</p><div class="tags"><span class="tag">16 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Система/VFX" data-search="поток крови система/vfx перенос клеток, пульсация, скорость и состояния потока." href="presets/blood-flow.html">
+      <img loading="lazy" src="assets/thumbs/presets/blood-flow.webp" alt="Поток крови">
+      <div class="body"><div class="kicker">Система/VFX</div><h3>Поток крови</h3>
+      <p>Перенос клеток, пульсация, скорость и состояния потока.</p><div class="tags"><span class="tag">17 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Среда" data-search="плазма крови среда жидкая среда кровотока." href="presets/plasma.html">
+      <img loading="lazy" src="assets/thumbs/presets/plasma.webp" alt="Плазма крови">
+      <div class="body"><div class="kicker">Среда</div><h3>Плазма крови</h3>
+      <p>Жидкая среда кровотока.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="эритроцит клетка интерактивный форменный элемент крови." href="presets/erythrocyte.html">
+      <img loading="lazy" src="assets/thumbs/presets/erythrocyte.webp" alt="Эритроцит">
+      <div class="body"><div class="kicker">Клетка</div><h3>Эритроцит</h3>
+      <p>Интерактивный форменный элемент крови.</p><div class="tags"><span class="tag">17 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекула/белок" data-search="гемоглобин молекула/белок учебный вложенный объект эритроцита." href="presets/hemoglobin.html">
+      <img loading="lazy" src="assets/thumbs/presets/hemoglobin.webp" alt="Гемоглобин">
+      <div class="body"><div class="kicker">Молекула/белок</div><h3>Гемоглобин</h3>
+      <p>Учебный вложенный объект эритроцита.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекула" data-search="гемовая группа молекула связывание o₂ через fe²⁺." href="presets/heme.html">
+      <img loading="lazy" src="assets/thumbs/presets/heme.webp" alt="Гемовая группа">
+      <div class="body"><div class="kicker">Молекула</div><h3>Гемовая группа</h3>
+      <p>Связывание O₂ через Fe²⁺.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Атом" data-search="атом железа fe атом центральный атом гема." href="presets/iron.html">
+      <img loading="lazy" src="assets/thumbs/presets/iron.webp" alt="Атом железа Fe">
+      <div class="body"><div class="kicker">Атом</div><h3>Атом железа Fe</h3>
+      <p>Центральный атом гема.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекула" data-search="молекула кислорода o₂ молекула снимается и возвращается к учебной модели." href="presets/oxygen.html">
+      <img loading="lazy" src="assets/thumbs/presets/oxygen.webp" alt="Молекула кислорода O₂">
+      <div class="body"><div class="kicker">Молекула</div><h3>Молекула кислорода O₂</h3>
+      <p>Снимается и возвращается к учебной модели.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекула" data-search="молекула углекислого газа co₂ молекула сравнение транспорта дыхательных газов." href="presets/co2.html">
+      <img loading="lazy" src="assets/thumbs/presets/co2.webp" alt="Молекула углекислого газа CO₂">
+      <div class="body"><div class="kicker">Молекула</div><h3>Молекула углекислого газа CO₂</h3>
+      <p>Сравнение транспорта дыхательных газов.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="лейкоцит клетка базовая иммунная клетка." href="presets/leukocyte.html">
+      <img loading="lazy" src="assets/thumbs/presets/leukocyte.webp" alt="Лейкоцит">
+      <div class="body"><div class="kicker">Клетка</div><h3>Лейкоцит</h3>
+      <p>Базовая иммунная клетка.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клеточный элемент" data-search="тромбоцит клеточный элемент покой, активация, адгезия, агрегация." href="presets/platelet.html">
+      <img loading="lazy" src="assets/thumbs/presets/platelet.webp" alt="Тромбоцит">
+      <div class="body"><div class="kicker">Клеточный элемент</div><h3>Тромбоцит</h3>
+      <p>Покой, активация, адгезия, агрегация.</p><div class="tags"><span class="tag">5 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Ткань" data-search="эндотелий ткань внутренний клеточный слой артерии." href="presets/endothelium.html">
+      <img loading="lazy" src="assets/thumbs/presets/endothelium.webp" alt="Эндотелий">
+      <div class="body"><div class="kicker">Ткань</div><h3>Эндотелий</h3>
+      <p>Внутренний клеточный слой артерии.</p><div class="tags"><span class="tag">5 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Ткань/окружение" data-search="слои стенки артерии ткань/окружение послойная учебная визуализация стенки." href="presets/artery-layers.html">
+      <img loading="lazy" src="assets/thumbs/presets/artery-layers.webp" alt="Слои стенки артерии">
+      <div class="body"><div class="kicker">Ткань/окружение</div><h3>Слои стенки артерии</h3>
+      <p>Послойная учебная визуализация стенки.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекулярный набор" data-search="белки плазмы молекулярный набор альбумин, глобулины, фибриноген и др." href="presets/plasma-proteins.html">
+      <img loading="lazy" src="assets/thumbs/presets/plasma-proteins.webp" alt="Белки плазмы">
+      <div class="body"><div class="kicker">Молекулярный набор</div><h3>Белки плазмы</h3>
+      <p>Альбумин, глобулины, фибриноген и др.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекулярный набор" data-search="ионы плазмы молекулярный набор na⁺, k⁺, ca²⁺, cl⁻." href="presets/plasma-ions.html">
+      <img loading="lazy" src="assets/thumbs/presets/plasma-ions.webp" alt="Ионы плазмы">
+      <div class="body"><div class="kicker">Молекулярный набор</div><h3>Ионы плазмы</h3>
+      <p>Na⁺, K⁺, Ca²⁺, Cl⁻.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология" data-search="атеросклеротическая бляшка патология композитный объект сцены 6." href="presets/plaque.html">
+      <img loading="lazy" src="assets/thumbs/presets/plaque.webp" alt="Атеросклеротическая бляшка">
+      <div class="body"><div class="kicker">Патология</div><h3>Атеросклеротическая бляшка</h3>
+      <p>Композитный объект сцены 6.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Молекулярный объект" data-search="частица ldl молекулярный объект учебная визуализация липопротеинов." href="presets/ldl.html">
+      <img loading="lazy" src="assets/thumbs/presets/ldl.webp" alt="Частица LDL">
+      <div class="body"><div class="kicker">Молекулярный объект</div><h3>Частица LDL</h3>
+      <p>Учебная визуализация липопротеинов.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология/часть" data-search="липидное ядро патология/часть внутренняя часть бляшки." href="presets/lipid-core.html">
+      <img loading="lazy" src="assets/thumbs/presets/lipid-core.webp" alt="Липидное ядро">
+      <div class="body"><div class="kicker">Патология/часть</div><h3>Липидное ядро</h3>
+      <p>Внутренняя часть бляшки.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="макрофаг клетка фагоцитоз, бляшка, очистка и финальный иммунный ответ." href="presets/macrophage.html">
+      <img loading="lazy" src="assets/thumbs/presets/macrophage.webp" alt="Макрофаг">
+      <div class="body"><div class="kicker">Клетка</div><h3>Макрофаг</h3>
+      <p>Фагоцитоз, бляшка, очистка и финальный иммунный ответ.</p><div class="tags"><span class="tag">4 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="пенистая клетка клетка макрофаг с накопленными липидами." href="presets/foam-cell.html">
+      <img loading="lazy" src="assets/thumbs/presets/foam-cell.webp" alt="Пенистая клетка">
+      <div class="body"><div class="kicker">Клетка</div><h3>Пенистая клетка</h3>
+      <p>Макрофаг с накопленными липидами.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология/часть" data-search="фиброзная покрышка патология/часть защищаемая поверхность бляшки." href="presets/fibrous-cap.html">
+      <img loading="lazy" src="assets/thumbs/presets/fibrous-cap.webp" alt="Фиброзная покрышка">
+      <div class="body"><div class="kicker">Патология/часть</div><h3>Фиброзная покрышка</h3>
+      <p>Защищаемая поверхность бляшки.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология/состояние" data-search="разорванная бляшка патология/состояние fail-state сцены 6." href="presets/ruptured-plaque.html">
+      <img loading="lazy" src="assets/thumbs/presets/ruptured-plaque.webp" alt="Разорванная бляшка">
+      <div class="body"><div class="kicker">Патология/состояние</div><h3>Разорванная бляшка</h3>
+      <p>Fail-state сцены 6.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология" data-search="газовый эмбол патология главный объект сцены 7." href="presets/gas-embolus.html">
+      <img loading="lazy" src="assets/thumbs/presets/gas-embolus.webp" alt="Газовый эмбол">
+      <div class="body"><div class="kicker">Патология</div><h3>Газовый эмбол</h3>
+      <p>Главный объект сцены 7.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Вирус" data-search="малая вирусная частица вирус основная вирусная цель сцен 8, 9 и 15." href="presets/small-virus.html">
+      <img loading="lazy" src="assets/thumbs/presets/small-virus.webp" alt="Малая вирусная частица">
+      <div class="body"><div class="kicker">Вирус</div><h3>Малая вирусная частица</h3>
+      <p>Основная вирусная цель сцен 8, 9 и 15.</p><div class="tags"><span class="tag">4 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Вирусная структура" data-search="антиген / вирусный шип вирусная структура выделяемый эпитоп и связывание антитела." href="presets/antigen.html">
+      <img loading="lazy" src="assets/thumbs/presets/antigen.webp" alt="Антиген / вирусный шип">
+      <div class="body"><div class="kicker">Вирусная структура</div><h3>Антиген / вирусный шип</h3>
+      <p>Выделяемый эпитоп и связывание антитела.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология/окружение" data-search="повреждённая внутренняя стенка патология/окружение локальный модуль повреждённой внутренней поверхности." href="presets/damaged-wall.html">
+      <img loading="lazy" src="assets/thumbs/presets/damaged-wall.webp" alt="Повреждённая внутренняя стенка">
+      <div class="body"><div class="kicker">Патология/окружение</div><h3>Повреждённая внутренняя стенка</h3>
+      <p>Локальный модуль повреждённой внутренней поверхности.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Патология/часть" data-search="локальный разрыв эндотелия патология/часть край разрыва и обнажённый субэндотелиальный матрикс." href="presets/endothelial-tear.html">
+      <img loading="lazy" src="assets/thumbs/presets/endothelial-tear.webp" alt="Локальный разрыв эндотелия">
+      <div class="body"><div class="kicker">Патология/часть</div><h3>Локальный разрыв эндотелия</h3>
+      <p>Край разрыва и обнажённый субэндотелиальный матрикс.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Гемостаз" data-search="тромбоцитарная пробка гемостаз первичный агрегат активированных тромбоцитов." href="presets/platelet-plug.html">
+      <img loading="lazy" src="assets/thumbs/presets/platelet-plug.webp" alt="Тромбоцитарная пробка">
+      <div class="body"><div class="kicker">Гемостаз</div><h3>Тромбоцитарная пробка</h3>
+      <p>Первичный агрегат активированных тромбоцитов.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Белок" data-search="фибриноген белок растворимый предшественник фибрина." href="presets/fibrinogen.html">
+      <img loading="lazy" src="assets/thumbs/presets/fibrinogen.webp" alt="Фибриноген">
+      <div class="body"><div class="kicker">Белок</div><h3>Фибриноген</h3>
+      <p>Растворимый предшественник фибрина.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Фермент" data-search="тромбин фермент преобразование фибриногена в фибрин." href="presets/thrombin.html">
+      <img loading="lazy" src="assets/thumbs/presets/thrombin.webp" alt="Тромбин">
+      <div class="body"><div class="kicker">Фермент</div><h3>Тромбин</h3>
+      <p>Преобразование фибриногена в фибрин.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Белок/волокна" data-search="фибрин белок/волокна отдельные нити и полимеризация." href="presets/fibrin.html">
+      <img loading="lazy" src="assets/thumbs/presets/fibrin.webp" alt="Фибрин">
+      <div class="body"><div class="kicker">Белок/волокна</div><h3>Фибрин</h3>
+      <p>Отдельные нити и полимеризация.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Гемостаз" data-search="фибриновая сеть гемостаз трёхмерный каркас стабилизированного тромба." href="presets/fibrin-network.html">
+      <img loading="lazy" src="assets/thumbs/presets/fibrin-network.webp" alt="Фибриновая сеть">
+      <div class="body"><div class="kicker">Гемостаз</div><h3>Фибриновая сеть</h3>
+      <p>Трёхмерный каркас стабилизированного тромба.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Гемостаз" data-search="стабильный тромб гемостаз итог сцены 12–13." href="presets/stable-thrombus.html">
+      <img loading="lazy" src="assets/thumbs/presets/stable-thrombus.webp" alt="Стабильный тромб">
+      <div class="body"><div class="kicker">Гемостаз</div><h3>Стабильный тромб</h3>
+      <p>Итог сцены 12–13.</p><div class="tags"><span class="tag">4 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Микрофрагменты" data-search="клеточный детрит микрофрагменты объект фагоцитоза и очистки." href="presets/cell-debris.html">
+      <img loading="lazy" src="assets/thumbs/presets/cell-debris.webp" alt="Клеточный детрит">
+      <div class="body"><div class="kicker">Микрофрагменты</div><h3>Клеточный детрит</h3>
+      <p>Объект фагоцитоза и очистки.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="нейтрофил клетка ранний иммунный ответ / дополнительный фагоцит." href="presets/neutrophil.html">
+      <img loading="lazy" src="assets/thumbs/presets/neutrophil.webp" alt="Нейтрофил">
+      <div class="body"><div class="kicker">Клетка</div><h3>Нейтрофил</h3>
+      <p>Ранний иммунный ответ / дополнительный фагоцит.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Ткань/состояние" data-search="восстанавливающийся эндотелий ткань/состояние миграция и закрытие дефекта." href="presets/recovering-endothelium.html">
+      <img loading="lazy" src="assets/thumbs/presets/recovering-endothelium.webp" alt="Восстанавливающийся эндотелий">
+      <div class="body"><div class="kicker">Ткань/состояние</div><h3>Восстанавливающийся эндотелий</h3>
+      <p>Миграция и закрытие дефекта.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Окружение/состояние" data-search="восстановленная внутренняя стенка окружение/состояние финальное состояние после восстановления." href="presets/healed-wall.html">
+      <img loading="lazy" src="assets/thumbs/presets/healed-wall.webp" alt="Восстановленная внутренняя стенка">
+      <div class="body"><div class="kicker">Окружение/состояние</div><h3>Восстановленная внутренняя стенка</h3>
+      <p>Финальное состояние после восстановления.</p><div class="tags"><span class="tag">3 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="инфицированная клетка клетка источник новых вирусных частиц в боссе." href="presets/infected-cell.html">
+      <img loading="lazy" src="assets/thumbs/presets/infected-cell.webp" alt="Инфицированная клетка">
+      <div class="body"><div class="kicker">Клетка</div><h3>Инфицированная клетка</h3>
+      <p>Источник новых вирусных частиц в боссе.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Белок" data-search="антитело белок специфическое связывание антигена." href="presets/antibody.html">
+      <img loading="lazy" src="assets/thumbs/presets/antibody.webp" alt="Антитело">
+      <div class="body"><div class="kicker">Белок</div><h3>Антитело</h3>
+      <p>Специфическое связывание антигена.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Иммунный комплекс" data-search="нейтрализованный вирусный комплекс иммунный комплекс вирус, связанный антителами." href="presets/neutralized-virus.html">
+      <img loading="lazy" src="assets/thumbs/presets/neutralized-virus.webp" alt="Нейтрализованный вирусный комплекс">
+      <div class="body"><div class="kicker">Иммунный комплекс</div><h3>Нейтрализованный вирусный комплекс</h3>
+      <p>Вирус, связанный антителами.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="цитотоксический t-лимфоцит клетка распознаёт и устраняет инфицированную клетку." href="presets/cytotoxic-t.html">
+      <img loading="lazy" src="assets/thumbs/presets/cytotoxic-t.webp" alt="Цитотоксический T-лимфоцит">
+      <div class="body"><div class="kicker">Клетка</div><h3>Цитотоксический T-лимфоцит</h3>
+      <p>Распознаёт и устраняет инфицированную клетку.</p><div class="tags"><span class="tag">2 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Композитный босс" data-search="финальный вирусный очаг композитный босс инфицированная клетка + генераторы вирусных частиц." href="presets/final-virus-focus.html">
+      <img loading="lazy" src="assets/thumbs/presets/final-virus-focus.webp" alt="Финальный вирусный очаг">
+      <div class="body"><div class="kicker">Композитный босс</div><h3>Финальный вирусный очаг</h3>
+      <p>Инфицированная клетка + генераторы вирусных частиц.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a>
+    <a class="preset-card" data-preset-card data-category="Клетка" data-search="b-лимфоцит / плазматическая клетка клетка образовательная вставка о происхождении антител." href="presets/b-lymphocyte.html">
+      <img loading="lazy" src="assets/thumbs/presets/b-lymphocyte.webp" alt="B-лимфоцит / плазматическая клетка">
+      <div class="body"><div class="kicker">Клетка</div><h3>B-лимфоцит / плазматическая клетка</h3>
+      <p>Образовательная вставка о происхождении антител.</p><div class="tags"><span class="tag">1 сцен</span></div></div>
+    </a></div></div></section>
+
+<section><div class="container"><div class="panel"><h2>Исходные документы</h2><p>В репозитории сохранены исходные Markdown-документы, из которых собран этот сайт.</p>
+<div class="markdown-links"><a class="btn" href="docs/source/scenario.md">Сценарий.md</a><a class="btn" href="docs/source/preset-map.md">Карта пресетов.md</a><a class="btn" href="docs/source/curriculum.md">Материалы по классам.md</a><a class="btn" href="CONCEPTBOOK.md">CONCEPTBOOK.md</a></div></div></div></section>
+</main><footer><div class="container">
+<strong>Biology VR</strong> · production documentation for Unity / Blender.<br>
+Статический сайт без внешних зависимостей — подходит для GitHub Pages.
+</div></footer><script src="assets/js/site.js"></script></body></html>

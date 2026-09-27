@@ -1,0 +1,1738 @@
+{
+  "project": {
+    "name": "Biology VR",
+    "subtitle": "Образовательная VR-игра: кровь, сосуды, гемостаз и иммунный ответ",
+    "engine": "Unity",
+    "duration": "30–40 минут",
+    "structure": "Лаборатория → артерия → восстановление → лаборатория",
+    "movement": "Без свободной локомоции; ключевые события в зоне досягаемости"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "slug": "scene-01",
+      "title": "Лаборатория",
+      "time": "0:00–5:00",
+      "mechanic": "Обучение: руки, захват, сканирование, масштабирование",
+      "purpose": "Научить игрока базовым VR-взаимодействиям и задать миссию.",
+      "sequence": [
+        "Запуск лаборатории",
+        "Захват учебного объекта",
+        "Эритроцит",
+        "Сканер",
+        "Увеличение эритроцита",
+        "Гемоглобин → гем → Fe",
+        "O₂ и CO₂",
+        "BioTool",
+        "Исходные показатели",
+        "Постановка миссии"
+      ],
+      "presets": [
+        "lab",
+        "professor",
+        "lab-table",
+        "info-screen",
+        "hud",
+        "scanner",
+        "biotool",
+        "shrink-chamber",
+        "erythrocyte",
+        "hemoglobin",
+        "heme",
+        "iron",
+        "oxygen",
+        "co2"
+      ],
+      "image": "assets/scenes/scene-01.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-01.webp",
+      "technical": [
+        "Статичная XR-зона игрока; свободная локомоция отключена.",
+        "Все предметы расположены в зоне досягаемости рук.",
+        "Сканер и BioTool стартуют в док-станциях на столе.",
+        "Информационный экран остаётся тем же UI-пресетом всю игру."
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "scene-02",
+      "title": "Уменьшение",
+      "time": "5:00–6:00",
+      "mechanic": "Переход / смена масштаба",
+      "purpose": "Без затемнения перевести игрока из лаборатории в микромир.",
+      "sequence": [
+        "Активация камеры",
+        "Световые кольца",
+        "Масштаб 1:1 → 1:10 000",
+        "Красный свет и сердцебиение",
+        "Проявление артерии",
+        "Запуск кровотока"
+      ],
+      "presets": [
+        "lab",
+        "shrink-chamber",
+        "professor",
+        "info-screen",
+        "hud",
+        "artery",
+        "erythrocyte",
+        "blood-flow"
+      ],
+      "image": "assets/scenes/scene-02.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-02.webp",
+      "technical": [
+        "Не отдельная gameplay-сцена, а Transition State.",
+        "Позиция HMD не перемещается принудительно.",
+        "Смешиваются две среды: лаборатория и артерия.",
+        "Не использовать резкий camera cut."
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "scene-03",
+      "title": "Артерия — знакомство с кровью",
+      "time": "6:00–10:00",
+      "mechanic": "Исследование объектов руками и сканером",
+      "purpose": "Познакомить с основными форменными элементами крови и молекулярным уровнем.",
+      "sequence": [
+        "Поймать эритроцит",
+        "Просканировать и увеличить",
+        "Изучить гемоглобин/O₂",
+        "Найти лейкоцит",
+        "Найти тромбоцит",
+        "Сравнить состояния тромбоцита"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "plasma",
+        "erythrocyte",
+        "hemoglobin",
+        "heme",
+        "iron",
+        "oxygen",
+        "co2",
+        "leukocyte",
+        "platelet",
+        "plasma-proteins",
+        "plasma-ions",
+        "scanner",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-03.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-03.webp",
+      "technical": [
+        "Игрок уже внутри артерии.",
+        "Фоновые клетки идут потоком, интерактивные экземпляры входят в локальную slow-zone.",
+        "Захваченный объект временно исключается из flow-system."
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "scene-04",
+      "title": "Строение артерии",
+      "time": "10:00–12:00",
+      "mechanic": "Послойное сканирование стенки",
+      "purpose": "Показать строение внутренней стенки артерии и её слои.",
+      "sequence": [
+        "Замедлить поток",
+        "Сканировать эндотелий",
+        "Включить послойный режим",
+        "Показать внутреннюю/среднюю/наружную оболочки"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "endothelium",
+        "artery-layers",
+        "scanner",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-04.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-04.webp",
+      "technical": [
+        "Послойность реализовать состояниями одного модульного участка стенки.",
+        "Сканирование включает визуальное выделение слоя, а не телепортирует игрока наружу сосуда."
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "scene-05",
+      "title": "Кровоток и давление",
+      "time": "12:00–14:00",
+      "mechanic": "Эксперимент с потоком, радиусом и давлением",
+      "purpose": "Связать наблюдаемый кровоток с радиусом сосуда, скоростью и давлением.",
+      "sequence": [
+        "Показать пульсацию",
+        "Снять параметры BioTool",
+        "Вывести Q=vS",
+        "Создать учебную модель участка",
+        "Изменить радиус и давление",
+        "Вернуть нормальный поток"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "endothelium",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-05.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-05.webp",
+      "technical": [
+        "Параметры радиуса и скорости должны быть связаны с визуализацией потока.",
+        "Учебная голограмма отделена от физического тоннеля и не изменяет реальный игровой маршрут."
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "scene-06",
+      "title": "Атеросклеротическая бляшка",
+      "time": "14:00–17:00",
+      "mechanic": "Точный BioTool-режим «Импульс»",
+      "purpose": "Ввести патологию стенки сосуда и первую точную активную механику BioTool.",
+      "sequence": [
+        "Обнаружить нарушение потока",
+        "Сканировать бляшку",
+        "Показать состав",
+        "Открыть режим «Импульс»",
+        "Точечно снизить патологическую нагрузку",
+        "Не повредить покрышку",
+        "При ошибке — тромбоз и чекпоинт"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "plaque",
+        "ldl",
+        "lipid-core",
+        "macrophage",
+        "foam-cell",
+        "fibrous-cap",
+        "ruptured-plaque",
+        "platelet",
+        "fibrin",
+        "stable-thrombus",
+        "scanner",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-06.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-06.webp",
+      "technical": [
+        "Бляшка — локальный модуль на внутренней стенке тоннеля.",
+        "Импульсы BioTool работают по ограниченным target-зонам.",
+        "Fail-state при критическом повреждении покрышки возвращает к чекпоинту."
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "scene-07",
+      "title": "Газовый эмбол",
+      "time": "17:00–19:00",
+      "mechanic": "BioTool «Притяжение» / gravity-gun",
+      "purpose": "Отработать дистанционный захват и перемещение опасного объекта.",
+      "sequence": [
+        "Обнаружить пузырёк",
+        "Просканировать",
+        "Открыть «Притяжение»",
+        "Захватить полем",
+        "Переместить в стабилизационную зону",
+        "Удалить объект"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "gas-embolus",
+        "scanner",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-07.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-07.webp",
+      "technical": [
+        "Пузырёк движется по splined flow path.",
+        "BioTool захватывает его без ручного контакта.",
+        "Стабилизационная зона — VFX/trigger, не отдельный биологический пресет."
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "scene-08",
+      "title": "Первая встреча с вирусом",
+      "time": "19:00–20:30",
+      "mechanic": "Исследование и сканирование вируса",
+      "purpose": "Научить сначала исследовать угрозу, а не атаковать её.",
+      "sequence": [
+        "Заметить неизвестную частицу",
+        "Поймать сканером",
+        "Увеличить модель",
+        "Исследовать генетический материал/капсид/антиген",
+        "Выделить эпитоп",
+        "Отпустить частицу по потоку"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "small-virus",
+        "antigen",
+        "scanner",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-08.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-08.webp",
+      "technical": [
+        "При исследовании поток локально замедляется.",
+        "Вирус увеличивается в учебном режиме, не меняя «реальный» биологический масштаб мира."
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "scene-09",
+      "title": "Вирусная волна",
+      "time": "20:30–23:00",
+      "mechanic": "Rhythm-action / иммунное управление",
+      "purpose": "Сделать иммунный ответ динамическим испытанием с ростом температуры.",
+      "sequence": [
+        "Открыть иммунное управление",
+        "Волна малых вирусов",
+        "Перехват энергетическими полями",
+        "Маркировка и подхват иммунной клеткой",
+        "Рост температуры",
+        "Не превысить 39,5 °C",
+        "Одна цель уходит дальше"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "small-virus",
+        "leukocyte",
+        "neutrophil",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-09.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-09.webp",
+      "technical": [
+        "Спавн вирусов идёт из дальней точки изгиба артерии.",
+        "Не использовать механику буквального разрубания вируса.",
+        "Температура связана с результативностью игрока через HUD."
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "scene-10",
+      "title": "Падение давления",
+      "time": "23:00–25:00",
+      "mechanic": "BioTool «Сосудистое поле»",
+      "purpose": "Показать падение давления и временное управление тонусом сосуда.",
+      "sequence": [
+        "Зафиксировать падение АД",
+        "Открыть сосудистое поле",
+        "Умеренно сузить участок",
+        "Получить временную стабилизацию",
+        "Увидеть повторное падение",
+        "Получить задачу найти причину"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-10.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-10.webp",
+      "technical": [
+        "Никаких новых объектов: только параметры уже существующих пресетов.",
+        "Сосудистое поле изменяет локальный radius/tone parameter.",
+        "После временного успеха система принудительно возвращает тренд падения давления."
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "scene-11",
+      "title": "Повреждение стенки сосуда",
+      "time": "25:00–26:30",
+      "mechanic": "Диагностика причины кровопотери",
+      "purpose": "Найти физическую причину падения давления — разрыв внутренней стенки.",
+      "sequence": [
+        "Увидеть разрыв изнутри",
+        "Сканером определить повреждение эндотелия",
+        "BioTool определить потерю крови",
+        "HUD подтвердит падение АД",
+        "Сформировать заключение"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "endothelium",
+        "artery-layers",
+        "damaged-wall",
+        "endothelial-tear",
+        "scanner",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-11.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-11.webp",
+      "technical": [
+        "Повреждение — модуль внутренней стенки, видимый из просвета.",
+        "Кровопотеря реализуется направленным потоком/VFX наружу через дефект.",
+        "Три независимых подтверждения открывают заключение."
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "scene-12",
+      "title": "Гемостаз",
+      "time": "26:30–30:00",
+      "mechanic": "Управление клетками + puzzle гемостаза",
+      "purpose": "Пошагово собрать первичный и стабилизированный гемостатический ответ.",
+      "sequence": [
+        "Направить тромбоциты",
+        "Адгезия",
+        "Активация",
+        "Агрегация",
+        "Тромбоцитарная пробка",
+        "Фибриноген → фибрин",
+        "Фибриновая сеть",
+        "Стабилизация"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "endothelial-tear",
+        "platelet",
+        "platelet-plug",
+        "fibrinogen",
+        "thrombin",
+        "fibrin",
+        "fibrin-network",
+        "stable-thrombus",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-12.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-12.webp",
+      "technical": [
+        "Гемостаз строится стадийно на одном и том же повреждённом участке.",
+        "Тромбоциты переключают состояния: покой → адгезия → активация → агрегация.",
+        "Фибриновая сеть растёт поверх пробки, не заменяя её мгновенно."
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "scene-13",
+      "title": "Баланс гемостаза",
+      "time": "≈ 1–2 мин",
+      "mechanic": "Баланс: остановить кровь без окклюзии",
+      "purpose": "Научить, что гемостаз должен быть достаточным, но не перекрывать сосуд.",
+      "sequence": [
+        "Показать шкалу гемостаза",
+        "Недостаточно: кровь выходит",
+        "Оптимум: дефект закрыт, поток сохранён",
+        "Избыточно: тромб сужает просвет",
+        "Зафиксировать оптимум"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "endothelial-tear",
+        "platelet",
+        "platelet-plug",
+        "fibrin-network",
+        "stable-thrombus",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-13.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-13.webp",
+      "technical": [
+        "Баланс гемостаза управляет степенью заполнения дефекта.",
+        "Избыточное состояние физически уменьшает свободный просвет.",
+        "Победа только при одновременно закрытом дефекте и сохранённом потоке."
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "scene-14",
+      "title": "Очистка и восстановление",
+      "time": "30:00–31:30",
+      "mechanic": "Фагоцитоз + восстановление эндотелия",
+      "purpose": "Показать очистку повреждённой зоны и восстановление эндотелия.",
+      "sequence": [
+        "Появление фагоцитов",
+        "Направление BioTool",
+        "Удаление клеточного детрита",
+        "Очистка зоны",
+        "Миграция эндотелия",
+        "Закрытие дефекта",
+        "Рост давления"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "stable-thrombus",
+        "cell-debris",
+        "macrophage",
+        "neutrophil",
+        "recovering-endothelium",
+        "healed-wall",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-14.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-14.webp",
+      "technical": [
+        "Детрит — массовый лёгкий VFX/mesh-pool.",
+        "Фагоциты управляются BioTool как направляемые агенты.",
+        "Восстановление стенки — последовательность состояний одного участка."
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "scene-15",
+      "title": "Финальный вирусный очаг",
+      "time": "31:30–36:00",
+      "mechanic": "Шестифазный финальный босс",
+      "purpose": "Объединить вирусологию и иммунологию в многофазный финальный эпизод.",
+      "sequence": [
+        "Фаза 1: сдержать вирусную нагрузку",
+        "Фаза 2: найти антиген/эпитоп",
+        "Фаза 3: подобрать антитело",
+        "Фаза 4: фагоцитоз нейтрализованных частиц",
+        "Фаза 5: Т-лимфоцит против инфицированной клетки",
+        "Фаза 6: финальная очистка и 0 % вирусной нагрузки"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "final-virus-focus",
+        "infected-cell",
+        "small-virus",
+        "antigen",
+        "antibody",
+        "neutralized-virus",
+        "macrophage",
+        "neutrophil",
+        "cytotoxic-t",
+        "b-lymphocyte",
+        "cell-debris",
+        "scanner",
+        "biotool",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-15.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-15.webp",
+      "technical": [
+        "Босс не является гигантским вирусом: это композитный очаг.",
+        "Каждая из 6 фаз использует уже изученную механику и добавляет один новый смысл.",
+        "После устранения инфицированной клетки отключается генератор новых вирусов."
+      ]
+    },
+    {
+      "id": 16,
+      "slug": "scene-16",
+      "title": "Восстановление гомеостаза",
+      "time": "после босса",
+      "mechanic": "Контроль показателей / подтверждение гомеостаза",
+      "purpose": "Сравнить текущее состояние с исходным и подтвердить восстановление гомеостаза.",
+      "sequence": [
+        "Нормализовать пульсацию",
+        "Выровнять кровоток",
+        "Повторно снять ЧСС/АД/SpO₂/T",
+        "Сравнить с лабораторией",
+        "Подтвердить гомеостаз"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "endothelium",
+        "healed-wall",
+        "scanner",
+        "hud",
+        "info-screen",
+        "professor"
+      ],
+      "image": "assets/scenes/scene-16.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-16.webp",
+      "technical": [
+        "Никаких новых ассетов.",
+        "Сцена меняет параметры артерии, потока, HUD и восстановленной стенки к норме."
+      ]
+    },
+    {
+      "id": 17,
+      "slug": "scene-17",
+      "title": "Возвращение в лабораторию",
+      "time": "переход",
+      "mechanic": "Переход / возврат масштаба",
+      "purpose": "Вернуть игрока из микромира в исходную лабораторию.",
+      "sequence": [
+        "Активировать поле возврата",
+        "Артерия и клетки уменьшаются",
+        "Красный → голубой",
+        "Проявляется камера",
+        "Возвращается лаборатория",
+        "Масштаб 1:1"
+      ],
+      "presets": [
+        "artery",
+        "blood-flow",
+        "erythrocyte",
+        "hud",
+        "professor",
+        "shrink-chamber",
+        "lab",
+        "lab-table",
+        "info-screen"
+      ],
+      "image": "assets/scenes/scene-17.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-17.webp",
+      "technical": [
+        "Transition State, обратный сцене 2.",
+        "Использовать тот же набор VFX в reverse-режиме."
+      ]
+    },
+    {
+      "id": 18,
+      "slug": "scene-18",
+      "title": "Финальный отчёт",
+      "time": "финал",
+      "mechanic": "Отчёт и разблокировка свободного режима",
+      "purpose": "Свести результаты миссии и открыть режим свободного исследования.",
+      "sequence": [
+        "Показать список изученного",
+        "Показать выполненные действия",
+        "Сравнить финальные показатели",
+        "Реплика профессора",
+        "Разблокировать свободное исследование"
+      ],
+      "presets": [
+        "lab",
+        "lab-table",
+        "professor",
+        "info-screen",
+        "hud",
+        "shrink-chamber",
+        "scanner",
+        "biotool",
+        "erythrocyte",
+        "hemoglobin",
+        "oxygen",
+        "co2",
+        "leukocyte",
+        "platelet",
+        "endothelium",
+        "artery-layers",
+        "blood-flow",
+        "plaque",
+        "gas-embolus",
+        "small-virus",
+        "antigen",
+        "platelet-plug",
+        "fibrin",
+        "macrophage",
+        "antibody",
+        "cytotoxic-t",
+        "healed-wall"
+      ],
+      "image": "assets/scenes/scene-18.webp",
+      "thumbnail": "assets/thumbs/scenes/scene-18.webp",
+      "technical": [
+        "Та же лаборатория, без новой локации.",
+        "Отчёт собирается из данных прохождения и миниатюр существующих пресетов.",
+        "После завершения переключается GameMode → FreeResearch."
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "lab",
+      "title": "Стартовая лаборатория",
+      "category": "Окружение",
+      "description": "Статичная рабочая зона; изображение сцены 1 используется как референс.",
+      "scenes": [
+        1,
+        2,
+        17,
+        18
+      ],
+      "image": "assets/presets/lab.webp",
+      "thumbnail": "assets/thumbs/presets/lab.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "professor",
+      "title": "Профессор-гид",
+      "category": "Персонаж",
+      "description": "Физический/голографический научный проводник.",
+      "scenes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "image": "assets/presets/professor.webp",
+      "thumbnail": "assets/thumbs/presets/professor.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR"
+      ]
+    },
+    {
+      "id": "info-screen",
+      "title": "Информационный экран",
+      "category": "UI/объект",
+      "description": "Постоянный экран заданий, терминов, формул и подсказок.",
+      "scenes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "image": "assets/presets/info-screen.webp",
+      "thumbnail": "assets/thumbs/presets/info-screen.webp",
+      "unity": [
+        "World Space Canvas или привязанный XR-UI",
+        "Стабильное положение относительно игрока",
+        "Событийное обновление данных без перезагрузки сцены"
+      ]
+    },
+    {
+      "id": "hud",
+      "title": "HUD жизненных показателей",
+      "category": "UI",
+      "description": "Постоянные ЧСС, АД, SpO₂, температура и статус миссии.",
+      "scenes": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "image": "assets/presets/hud.webp",
+      "thumbnail": "assets/thumbs/presets/hud.webp",
+      "unity": [
+        "World Space Canvas или привязанный XR-UI",
+        "Стабильное положение относительно игрока",
+        "Событийное обновление данных без перезагрузки сцены"
+      ]
+    },
+    {
+      "id": "lab-table",
+      "title": "Лабораторный стол",
+      "category": "Окружение",
+      "description": "Центральная рабочая станция и доки инструментов.",
+      "scenes": [
+        1,
+        17,
+        18
+      ],
+      "image": "assets/presets/lab-table.webp",
+      "thumbnail": "assets/thumbs/presets/lab-table.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "shrink-chamber",
+      "title": "Камера уменьшения",
+      "category": "Устройство",
+      "description": "Переход лаборатория ↔ микромир.",
+      "scenes": [
+        1,
+        2,
+        17,
+        18
+      ],
+      "image": "assets/presets/shrink-chamber.webp",
+      "thumbnail": "assets/thumbs/presets/shrink-chamber.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR"
+      ]
+    },
+    {
+      "id": "scanner",
+      "title": "Ручной сканер",
+      "category": "Инструмент",
+      "description": "Распознавание и исследование объектов.",
+      "scenes": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11,
+        15,
+        16,
+        18
+      ],
+      "image": "assets/presets/scanner.webp",
+      "thumbnail": "assets/thumbs/presets/scanner.webp",
+      "unity": [
+        "XR Grab Interactable",
+        "Socket/Dock для возврата инструмента",
+        "State Machine режимов и VFX-индикация",
+        "Haptic feedback на подтверждённые действия"
+      ]
+    },
+    {
+      "id": "biotool",
+      "title": "BioTool",
+      "category": "Инструмент",
+      "description": "Импульс, притяжение, управление, сосудистое поле, иммунное управление.",
+      "scenes": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        18
+      ],
+      "image": "assets/presets/biotool.webp",
+      "thumbnail": "assets/thumbs/presets/biotool.webp",
+      "unity": [
+        "XR Grab Interactable",
+        "Socket/Dock для возврата инструмента",
+        "State Machine режимов и VFX-индикация",
+        "Haptic feedback на подтверждённые действия"
+      ]
+    },
+    {
+      "id": "artery",
+      "title": "Артерия — основной тоннель",
+      "category": "Окружение",
+      "description": "Основная игровая локация внутри просвета сосуда.",
+      "scenes": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "image": "assets/presets/artery.webp",
+      "thumbnail": "assets/thumbs/presets/artery.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "blood-flow",
+      "title": "Поток крови",
+      "category": "Система/VFX",
+      "description": "Перенос клеток, пульсация, скорость и состояния потока.",
+      "scenes": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "image": "assets/presets/blood-flow.webp",
+      "thumbnail": "assets/thumbs/presets/blood-flow.webp",
+      "unity": [
+        "GPU-instancing/Particle System для массовых элементов",
+        "Параметры скорости и плотности управляются сценой",
+        "Без тяжёлой физики на фоновых частицах"
+      ]
+    },
+    {
+      "id": "plasma",
+      "title": "Плазма крови",
+      "category": "Среда",
+      "description": "Жидкая среда кровотока.",
+      "scenes": [
+        3
+      ],
+      "image": "assets/presets/plasma.webp",
+      "thumbnail": "assets/thumbs/presets/plasma.webp",
+      "unity": [
+        "GPU-instancing/Particle System для массовых элементов",
+        "Параметры скорости и плотности управляются сценой",
+        "Без тяжёлой физики на фоновых частицах"
+      ]
+    },
+    {
+      "id": "erythrocyte",
+      "title": "Эритроцит",
+      "category": "Клетка",
+      "description": "Интерактивный форменный элемент крови.",
+      "scenes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "image": "assets/presets/erythrocyte.webp",
+      "thumbnail": "assets/thumbs/presets/erythrocyte.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "hemoglobin",
+      "title": "Гемоглобин",
+      "category": "Молекула/белок",
+      "description": "Учебный вложенный объект эритроцита.",
+      "scenes": [
+        1,
+        3,
+        18
+      ],
+      "image": "assets/presets/hemoglobin.webp",
+      "thumbnail": "assets/thumbs/presets/hemoglobin.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "heme",
+      "title": "Гемовая группа",
+      "category": "Молекула",
+      "description": "Связывание O₂ через Fe²⁺.",
+      "scenes": [
+        1,
+        3
+      ],
+      "image": "assets/presets/heme.webp",
+      "thumbnail": "assets/thumbs/presets/heme.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "iron",
+      "title": "Атом железа Fe",
+      "category": "Атом",
+      "description": "Центральный атом гема.",
+      "scenes": [
+        1,
+        3
+      ],
+      "image": "assets/presets/iron.webp",
+      "thumbnail": "assets/thumbs/presets/iron.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "oxygen",
+      "title": "Молекула кислорода O₂",
+      "category": "Молекула",
+      "description": "Снимается и возвращается к учебной модели.",
+      "scenes": [
+        1,
+        3,
+        18
+      ],
+      "image": "assets/presets/oxygen.webp",
+      "thumbnail": "assets/thumbs/presets/oxygen.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "co2",
+      "title": "Молекула углекислого газа CO₂",
+      "category": "Молекула",
+      "description": "Сравнение транспорта дыхательных газов.",
+      "scenes": [
+        1,
+        3,
+        18
+      ],
+      "image": "assets/presets/co2.webp",
+      "thumbnail": "assets/thumbs/presets/co2.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "leukocyte",
+      "title": "Лейкоцит",
+      "category": "Клетка",
+      "description": "Базовая иммунная клетка.",
+      "scenes": [
+        3,
+        9,
+        18
+      ],
+      "image": "assets/presets/leukocyte.webp",
+      "thumbnail": "assets/thumbs/presets/leukocyte.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "platelet",
+      "title": "Тромбоцит",
+      "category": "Клеточный элемент",
+      "description": "Покой, активация, адгезия, агрегация.",
+      "scenes": [
+        3,
+        6,
+        12,
+        13,
+        18
+      ],
+      "image": "assets/presets/platelet.webp",
+      "thumbnail": "assets/thumbs/presets/platelet.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "endothelium",
+      "title": "Эндотелий",
+      "category": "Ткань",
+      "description": "Внутренний клеточный слой артерии.",
+      "scenes": [
+        4,
+        5,
+        11,
+        16,
+        18
+      ],
+      "image": "assets/presets/endothelium.webp",
+      "thumbnail": "assets/thumbs/presets/endothelium.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "artery-layers",
+      "title": "Слои стенки артерии",
+      "category": "Ткань/окружение",
+      "description": "Послойная учебная визуализация стенки.",
+      "scenes": [
+        4,
+        11,
+        18
+      ],
+      "image": "assets/presets/artery-layers.webp",
+      "thumbnail": "assets/thumbs/presets/artery-layers.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "plasma-proteins",
+      "title": "Белки плазмы",
+      "category": "Молекулярный набор",
+      "description": "Альбумин, глобулины, фибриноген и др.",
+      "scenes": [
+        3
+      ],
+      "image": "assets/presets/plasma-proteins.webp",
+      "thumbnail": "assets/thumbs/presets/plasma-proteins.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR"
+      ]
+    },
+    {
+      "id": "plasma-ions",
+      "title": "Ионы плазмы",
+      "category": "Молекулярный набор",
+      "description": "Na⁺, K⁺, Ca²⁺, Cl⁻.",
+      "scenes": [
+        3
+      ],
+      "image": "assets/presets/plasma-ions.webp",
+      "thumbnail": "assets/thumbs/presets/plasma-ions.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR"
+      ]
+    },
+    {
+      "id": "plaque",
+      "title": "Атеросклеротическая бляшка",
+      "category": "Патология",
+      "description": "Композитный объект сцены 6.",
+      "scenes": [
+        6,
+        18
+      ],
+      "image": "assets/presets/plaque.webp",
+      "thumbnail": "assets/thumbs/presets/plaque.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном",
+        "Композитный объект: собирается из базовых пресетов, не дублировать геометрию без необходимости"
+      ]
+    },
+    {
+      "id": "ldl",
+      "title": "Частица LDL",
+      "category": "Молекулярный объект",
+      "description": "Учебная визуализация липопротеинов.",
+      "scenes": [
+        6
+      ],
+      "image": "assets/presets/ldl.webp",
+      "thumbnail": "assets/thumbs/presets/ldl.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR"
+      ]
+    },
+    {
+      "id": "lipid-core",
+      "title": "Липидное ядро",
+      "category": "Патология/часть",
+      "description": "Внутренняя часть бляшки.",
+      "scenes": [
+        6
+      ],
+      "image": "assets/presets/lipid-core.webp",
+      "thumbnail": "assets/thumbs/presets/lipid-core.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "macrophage",
+      "title": "Макрофаг",
+      "category": "Клетка",
+      "description": "Фагоцитоз, бляшка, очистка и финальный иммунный ответ.",
+      "scenes": [
+        6,
+        14,
+        15,
+        18
+      ],
+      "image": "assets/presets/macrophage.webp",
+      "thumbnail": "assets/thumbs/presets/macrophage.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "foam-cell",
+      "title": "Пенистая клетка",
+      "category": "Клетка",
+      "description": "Макрофаг с накопленными липидами.",
+      "scenes": [
+        6
+      ],
+      "image": "assets/presets/foam-cell.webp",
+      "thumbnail": "assets/thumbs/presets/foam-cell.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "fibrous-cap",
+      "title": "Фиброзная покрышка",
+      "category": "Патология/часть",
+      "description": "Защищаемая поверхность бляшки.",
+      "scenes": [
+        6
+      ],
+      "image": "assets/presets/fibrous-cap.webp",
+      "thumbnail": "assets/thumbs/presets/fibrous-cap.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "ruptured-plaque",
+      "title": "Разорванная бляшка",
+      "category": "Патология/состояние",
+      "description": "Fail-state сцены 6.",
+      "scenes": [
+        6
+      ],
+      "image": "assets/presets/ruptured-plaque.webp",
+      "thumbnail": "assets/thumbs/presets/ruptured-plaque.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "gas-embolus",
+      "title": "Газовый эмбол",
+      "category": "Патология",
+      "description": "Главный объект сцены 7.",
+      "scenes": [
+        7,
+        18
+      ],
+      "image": "assets/presets/gas-embolus.webp",
+      "thumbnail": "assets/thumbs/presets/gas-embolus.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "small-virus",
+      "title": "Малая вирусная частица",
+      "category": "Вирус",
+      "description": "Основная вирусная цель сцен 8, 9 и 15.",
+      "scenes": [
+        8,
+        9,
+        15,
+        18
+      ],
+      "image": "assets/presets/small-virus.webp",
+      "thumbnail": "assets/thumbs/presets/small-virus.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "antigen",
+      "title": "Антиген / вирусный шип",
+      "category": "Вирусная структура",
+      "description": "Выделяемый эпитоп и связывание антитела.",
+      "scenes": [
+        8,
+        15,
+        18
+      ],
+      "image": "assets/presets/antigen.webp",
+      "thumbnail": "assets/thumbs/presets/antigen.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "damaged-wall",
+      "title": "Повреждённая внутренняя стенка",
+      "category": "Патология/окружение",
+      "description": "Локальный модуль повреждённой внутренней поверхности.",
+      "scenes": [
+        11
+      ],
+      "image": "assets/presets/damaged-wall.webp",
+      "thumbnail": "assets/thumbs/presets/damaged-wall.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "endothelial-tear",
+      "title": "Локальный разрыв эндотелия",
+      "category": "Патология/часть",
+      "description": "Край разрыва и обнажённый субэндотелиальный матрикс.",
+      "scenes": [
+        11,
+        12,
+        13
+      ],
+      "image": "assets/presets/endothelial-tear.webp",
+      "thumbnail": "assets/thumbs/presets/endothelial-tear.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "platelet-plug",
+      "title": "Тромбоцитарная пробка",
+      "category": "Гемостаз",
+      "description": "Первичный агрегат активированных тромбоцитов.",
+      "scenes": [
+        12,
+        13,
+        18
+      ],
+      "image": "assets/presets/platelet-plug.webp",
+      "thumbnail": "assets/thumbs/presets/platelet-plug.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном",
+        "Композитный объект: собирается из базовых пресетов, не дублировать геометрию без необходимости"
+      ]
+    },
+    {
+      "id": "fibrinogen",
+      "title": "Фибриноген",
+      "category": "Белок",
+      "description": "Растворимый предшественник фибрина.",
+      "scenes": [
+        12
+      ],
+      "image": "assets/presets/fibrinogen.webp",
+      "thumbnail": "assets/thumbs/presets/fibrinogen.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "thrombin",
+      "title": "Тромбин",
+      "category": "Фермент",
+      "description": "Преобразование фибриногена в фибрин.",
+      "scenes": [
+        12
+      ],
+      "image": "assets/presets/thrombin.webp",
+      "thumbnail": "assets/thumbs/presets/thrombin.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "fibrin",
+      "title": "Фибрин",
+      "category": "Белок/волокна",
+      "description": "Отдельные нити и полимеризация.",
+      "scenes": [
+        6,
+        12,
+        18
+      ],
+      "image": "assets/presets/fibrin.webp",
+      "thumbnail": "assets/thumbs/presets/fibrin.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "fibrin-network",
+      "title": "Фибриновая сеть",
+      "category": "Гемостаз",
+      "description": "Трёхмерный каркас стабилизированного тромба.",
+      "scenes": [
+        12,
+        13
+      ],
+      "image": "assets/presets/fibrin-network.webp",
+      "thumbnail": "assets/thumbs/presets/fibrin-network.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном"
+      ]
+    },
+    {
+      "id": "stable-thrombus",
+      "title": "Стабильный тромб",
+      "category": "Гемостаз",
+      "description": "Итог сцены 12–13.",
+      "scenes": [
+        6,
+        12,
+        13,
+        14
+      ],
+      "image": "assets/presets/stable-thrombus.webp",
+      "thumbnail": "assets/thumbs/presets/stable-thrombus.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном",
+        "Композитный объект: собирается из базовых пресетов, не дублировать геометрию без необходимости"
+      ]
+    },
+    {
+      "id": "cell-debris",
+      "title": "Клеточный детрит",
+      "category": "Микрофрагменты",
+      "description": "Объект фагоцитоза и очистки.",
+      "scenes": [
+        14,
+        15
+      ],
+      "image": "assets/presets/cell-debris.webp",
+      "thumbnail": "assets/thumbs/presets/cell-debris.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR"
+      ]
+    },
+    {
+      "id": "neutrophil",
+      "title": "Нейтрофил",
+      "category": "Клетка",
+      "description": "Ранний иммунный ответ / дополнительный фагоцит.",
+      "scenes": [
+        9,
+        14,
+        15
+      ],
+      "image": "assets/presets/neutrophil.webp",
+      "thumbnail": "assets/thumbs/presets/neutrophil.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "recovering-endothelium",
+      "title": "Восстанавливающийся эндотелий",
+      "category": "Ткань/состояние",
+      "description": "Миграция и закрытие дефекта.",
+      "scenes": [
+        14
+      ],
+      "image": "assets/presets/recovering-endothelium.webp",
+      "thumbnail": "assets/thumbs/presets/recovering-endothelium.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "healed-wall",
+      "title": "Восстановленная внутренняя стенка",
+      "category": "Окружение/состояние",
+      "description": "Финальное состояние после восстановления.",
+      "scenes": [
+        14,
+        16,
+        18
+      ],
+      "image": "assets/presets/healed-wall.webp",
+      "thumbnail": "assets/thumbs/presets/healed-wall.webp",
+      "unity": [
+        "Модульный Prefab",
+        "PBR-материалы + LOD",
+        "Коллайдеры только на интерактивных участках",
+        "Состояния через Animator/Material Parameters"
+      ]
+    },
+    {
+      "id": "infected-cell",
+      "title": "Инфицированная клетка",
+      "category": "Клетка",
+      "description": "Источник новых вирусных частиц в боссе.",
+      "scenes": [
+        15
+      ],
+      "image": "assets/presets/infected-cell.webp",
+      "thumbnail": "assets/thumbs/presets/infected-cell.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "antibody",
+      "title": "Антитело",
+      "category": "Белок",
+      "description": "Специфическое связывание антигена.",
+      "scenes": [
+        15,
+        18
+      ],
+      "image": "assets/presets/antibody.webp",
+      "thumbnail": "assets/thumbs/presets/antibody.webp",
+      "unity": [
+        "Увеличенный учебный масштаб",
+        "ScannerTarget",
+        "XR Grab/Rotate",
+        "Snap points для связывания",
+        "Условный масштаб явно отмечается в UI"
+      ]
+    },
+    {
+      "id": "neutralized-virus",
+      "title": "Нейтрализованный вирусный комплекс",
+      "category": "Иммунный комплекс",
+      "description": "Вирус, связанный антителами.",
+      "scenes": [
+        15
+      ],
+      "image": "assets/presets/neutralized-virus.webp",
+      "thumbnail": "assets/thumbs/presets/neutralized-virus.webp",
+      "unity": [
+        "Сценарный Prefab с несколькими состояниями",
+        "ScannerTarget + игровые триггеры",
+        "LOD и отдельные коллайдеры у целей",
+        "Состояния синхронизируются с HUD и информационным экраном",
+        "Композитный объект: собирается из базовых пресетов, не дублировать геометрию без необходимости"
+      ]
+    },
+    {
+      "id": "cytotoxic-t",
+      "title": "Цитотоксический T-лимфоцит",
+      "category": "Клетка",
+      "description": "Распознаёт и устраняет инфицированную клетку.",
+      "scenes": [
+        15,
+        18
+      ],
+      "image": "assets/presets/cytotoxic-t.webp",
+      "thumbnail": "assets/thumbs/presets/cytotoxic-t.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    },
+    {
+      "id": "final-virus-focus",
+      "title": "Финальный вирусный очаг",
+      "category": "Композитный босс",
+      "description": "Инфицированная клетка + генераторы вирусных частиц.",
+      "scenes": [
+        15
+      ],
+      "image": "assets/presets/final-virus-focus.webp",
+      "thumbnail": "assets/thumbs/presets/final-virus-focus.webp",
+      "unity": [
+        "Prefab",
+        "ScannerTarget при необходимости",
+        "LOD/оптимизация для VR",
+        "Композитный объект: собирается из базовых пресетов, не дублировать геометрию без необходимости"
+      ]
+    },
+    {
+      "id": "b-lymphocyte",
+      "title": "B-лимфоцит / плазматическая клетка",
+      "category": "Клетка",
+      "description": "Образовательная вставка о происхождении антител.",
+      "scenes": [
+        15
+      ],
+      "image": "assets/presets/b-lymphocyte.webp",
+      "thumbnail": "assets/thumbs/presets/b-lymphocyte.webp",
+      "unity": [
+        "Prefab с LOD",
+        "ScannerTarget",
+        "XR Grab только в учебной зоне",
+        "FlowFollower/анимация движения",
+        "Состояния через Animator/BlendShapes"
+      ]
+    }
+  ]
+}
