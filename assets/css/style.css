@@ -79,3 +79,63 @@ details{border:1px solid #1b4054;border-radius:12px;background:#0a1925;margin:9p
 .phase{border-left:3px solid var(--red);padding-left:14px;margin:18px 0}.phase h3{margin-bottom:5px}
 @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.preset-grid{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}}
 @media(max-width:650px){.navlinks{display:none}.grid,.preset-grid,.preset-links{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero{padding-top:45px}.container{width:min(100% - 22px,1240px)}}
+/* ---------- Image lightbox ---------- */
+main img:not([data-no-lightbox]){cursor:zoom-in}
+body.lightbox-open{overflow:hidden}
+.lightbox{
+  position:fixed;inset:0;z-index:1000;display:none;place-items:center;
+  padding:24px;background:rgba(2,8,14,.94);backdrop-filter:blur(14px)
+}
+.lightbox.open{display:grid}
+.lightbox-stage{
+  width:min(96vw,1600px);height:min(92vh,1100px);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px
+}
+.lightbox-image{
+  max-width:100%;max-height:calc(92vh - 56px);width:auto;height:auto;object-fit:contain;
+  border-radius:12px;border:1px solid rgba(84,217,255,.25);box-shadow:0 26px 90px rgba(0,0,0,.55);
+  cursor:zoom-out
+}
+.lightbox-caption{
+  max-width:min(92vw,1200px);padding:7px 12px;border-radius:999px;
+  background:rgba(7,17,28,.82);color:#d8ecf7;font-size:13px;text-align:center
+}
+.lightbox-close{
+  position:fixed;top:16px;right:18px;z-index:2;width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(84,217,255,.35);background:#0b1b28;color:#fff;font-size:30px;
+  line-height:1;cursor:pointer
+}
+.lightbox-close:hover{border-color:var(--cyan);background:#12344a}
+
+/* ---------- Curriculum ---------- */
+.table-wrap{width:100%;overflow:auto;border:1px solid rgba(84,217,255,.14);border-radius:12px}
+.table-wrap table{margin:0}
+.curriculum-table{min-width:1080px;background:rgba(6,16,26,.28)}
+.curriculum-table th{position:sticky;top:0;background:#0b2131;z-index:1}
+.curriculum-table td:first-child{white-space:nowrap;color:#fff}
+.curriculum-table td:nth-child(2){white-space:nowrap}
+.curriculum-table tbody tr:hover{background:rgba(84,217,255,.045)}
+.curriculum-table tr[hidden]{display:none}
+.curriculum-filters{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:0 0 16px}
+.curriculum-filters label{display:grid;gap:6px;color:var(--muted);font-size:12px;font-weight:700}
+.curriculum-filters select{
+  min-width:160px;background:#0b1a27;color:var(--text);border:1px solid var(--line);
+  border-radius:10px;padding:10px 12px;outline:none
+}
+.formula-inline{white-space:nowrap;font-family:Cambria Math,STIX Two Math,serif;color:#e7f8ff}
+.grade-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.grade-card{
+  display:block;padding:16px;border:1px solid rgba(84,217,255,.17);
+  border-radius:14px;background:rgba(13,28,42,.72)
+}
+.grade-card strong{display:block;font-size:22px;color:var(--cyan)}
+.grade-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
+.curriculum-note{margin-top:14px;color:var(--muted);font-size:13px}
+
+@media(max-width:980px){.grade-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){
+  .lightbox{padding:10px}
+  .lightbox-stage{width:98vw;height:94vh}
+  .lightbox-image{max-height:calc(94vh - 52px)}
+  .grade-grid{grid-template-columns:1fr}
+}

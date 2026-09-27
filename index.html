@@ -9,6 +9,7 @@
 <a href="index.html#scenes">Сцены</a>
 <a href="index.html#presets">Пресеты</a>
 <a href="conceptbook.html">Conceptbook</a>
+<a href="curriculum.html">Теория по классам</a>
 <a href="docs/source/scenario.md">Сценарий.md</a>
 </nav></div></header>
 <main>
@@ -16,7 +17,7 @@
 <div class="eyebrow">Game concept · Unity VR · production bible</div>
 <h1>BIOLOGY VR<small>Кровь, сосуды, гемостаз и иммунный ответ — как единая интерактивная миссия внутри артерии</small></h1>
 <p class="lead">Единая точка документации проекта: концепция игры, полный маршрут из 18 сцен, библиотека биологических и технических пресетов, связи «сцена → используемые пресеты» и обратные связи «пресет → сцены».</p>
-<div class="actions"><a class="btn primary" href="#scenes">Открыть сцены</a><a class="btn" href="conceptbook.html">Читать Conceptbook</a><a class="btn" href="docs/source/preset-map.md">Техническая карта MD</a></div>
+<div class="actions"><a class="btn primary" href="#scenes">Открыть сцены</a><a class="btn" href="conceptbook.html">Читать Conceptbook</a><a class="btn" href="curriculum.html">Теория по классам</a><a class="btn" href="docs/source/preset-map.md">Техническая карта MD</a></div>
 <div class="stats"><div class="stat"><strong>18</strong><span>сцен и переходов</span></div><div class="stat"><strong>51</strong><span>описанный пресет</span></div><div class="stat"><strong>30–40 мин</strong><span>основная миссия</span></div><div class="stat"><strong>1 артерия</strong><span>единый микромир без свободной ходьбы</span></div></div>
 </div></section>
 
@@ -27,7 +28,21 @@
 <div class="panel"><h3>Научный принцип</h3><p>Визуальная стилизация допускается, но механика должна объяснять причинно-следственные связи. Условные масштабы и упрощённые модели явно маркируются.</p></div>
 </div></div></section>
 
-<section id="scenes"><div class="container"><div class="section-head"><div><div class="eyebrow">02 · Scene bible</div><h2>Сцены</h2></div><p>Каждая сцена имеет отдельную страницу с иллюстрацией, технической последовательностью, механикой и прямыми ссылками на все задействованные пресеты.</p></div>
+
+<section id="education"><div class="container">
+<div class="section-head"><div><div class="eyebrow">02 · Education</div><h2>Теория по классам</h2></div>
+<p>Отдельный образовательный слой проекта: от вводного микромира 7–8 классов до крови, гемостаза и иммунитета в 9 классе и молекулярного режима 10 класса.</p></div>
+<div class="grade-grid">
+<a class="grade-card" href="curriculum.html"><strong>7</strong><span>Клетка, мембрана, органоиды, вирусы.</span></a>
+<a class="grade-card" href="curriculum.html"><strong>8</strong><span>Сосуды, транспорт веществ, диффузия, осмос.</span></a>
+<a class="grade-card" href="curriculum.html"><strong>9</strong><span>Кровь, гемостаз, иммунитет, давление, гомеостаз.</span></a>
+<a class="grade-card" href="curriculum.html"><strong>10</strong><span>Вирусология, фагоцитоз, антиген/антитело, клеточный гомеостаз.</span></a>
+<a class="grade-card" href="curriculum.html"><strong>11</strong><span>Эволюция патогенов и паразитизм — расширение.</span></a>
+</div>
+<div class="actions"><a class="btn primary" href="curriculum.html">Открыть полную таблицу</a><a class="btn" href="docs/source/curriculum.md">Исходный MD</a></div>
+</div></section>
+
+<section id="scenes"><div class="container"><div class="section-head"><div><div class="eyebrow">03 · Scene bible</div><h2>Сцены</h2></div><p>Каждая сцена имеет отдельную страницу с иллюстрацией, технической последовательностью, механикой и прямыми ссылками на все задействованные пресеты.</p></div>
 <div class="grid">
     <a class="card" href="scenes/scene-01.html">
       <img class="thumb" loading="lazy" src="assets/thumbs/scenes/scene-01.webp" alt="Сцена 1: Лаборатория">
@@ -138,7 +153,7 @@
       <div class="tags"><span class="tag">Отчёт и разблокировка свободного режима</span><span class="tag green">27 пресетов</span></div></div>
     </a></div></div></section>
 
-<section><div class="container"><div class="section-head"><div><div class="eyebrow">03 · Flow</div><h2>Маршрут игрока</h2></div></div><div class="timeline"><div class="timeline-item"><div class="num">1</div>
+<section><div class="container"><div class="section-head"><div><div class="eyebrow">04 · Flow</div><h2>Маршрут игрока</h2></div></div><div class="timeline"><div class="timeline-item"><div class="num">1</div>
     <a class="timeline-box" href="scenes/scene-01.html"><strong>Лаборатория</strong>
     <div class="meta">0:00–5:00 · Обучение: руки, захват, сканирование, масштабирование</div></a></div><div class="timeline-item"><div class="num">2</div>
     <a class="timeline-box" href="scenes/scene-02.html"><strong>Уменьшение</strong>
@@ -176,7 +191,7 @@
     <a class="timeline-box" href="scenes/scene-18.html"><strong>Финальный отчёт</strong>
     <div class="meta">финал · Отчёт и разблокировка свободного режима</div></a></div></div></div></section>
 
-<section id="presets"><div class="container"><div class="section-head"><div><div class="eyebrow">04 · Asset library</div><h2>Библиотека пресетов</h2></div><p>Все 3D/UX/VFX-объекты разложены как отдельные сущности. На странице каждого пресета указано, где он используется.</p></div>
+<section id="presets"><div class="container"><div class="section-head"><div><div class="eyebrow">05 · Asset library</div><h2>Библиотека пресетов</h2></div><p>Все 3D/UX/VFX-объекты разложены как отдельные сущности. На странице каждого пресета указано, где он используется.</p></div>
 <div class="searchrow"><input id="presetSearch" placeholder="Поиск: эритроцит, гемостаз, инструмент…"><select id="presetCategory"><option value="all">Все категории</option><option>UI</option><option>UI/объект</option><option>Атом</option><option>Белок</option><option>Белок/волокна</option><option>Вирус</option><option>Вирусная структура</option><option>Гемостаз</option><option>Иммунный комплекс</option><option>Инструмент</option><option>Клетка</option><option>Клеточный элемент</option><option>Композитный босс</option><option>Микрофрагменты</option><option>Молекула</option><option>Молекула/белок</option><option>Молекулярный набор</option><option>Молекулярный объект</option><option>Окружение</option><option>Окружение/состояние</option><option>Патология</option><option>Патология/окружение</option><option>Патология/состояние</option><option>Патология/часть</option><option>Персонаж</option><option>Система/VFX</option><option>Среда</option><option>Ткань</option><option>Ткань/окружение</option><option>Ткань/состояние</option><option>Устройство</option><option>Фермент</option></select></div>
 <div class="preset-grid">
     <a class="preset-card" data-preset-card data-category="Окружение" data-search="стартовая лаборатория окружение статичная рабочая зона; изображение сцены 1 используется как референс." href="presets/lab.html">
